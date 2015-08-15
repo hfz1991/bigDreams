@@ -25,12 +25,12 @@
     HUD.textLabel.text = @"Loading";
     [HUD showInView:self.view];
     
-//    PFQuery *query2 = [PFQuery queryWithClassName:@"Account"];
-//    [query2 whereKey:@"username" equalTo:_username];
-//    [query2 getFirstObjectInBackgroundWithBlock:^(PFObject *object2, NSError *error){
-//        NSString *voteString = [[object2 objectForKey:@"votesRemaining"]stringValue];
-//        _myVote.text = voteString;
-//    }];
+    PFQuery *query2 = [PFQuery queryWithClassName:@"Account"];
+    [query2 whereKey:@"username" equalTo:_username];
+    [query2 getFirstObjectInBackgroundWithBlock:^(PFObject *object2, NSError *error){
+        NSString *voteString = [[object2 objectForKey:@"votesRemaining"]stringValue];
+        _myVote.text = voteString;
+    }];
 
     
     allProjectsArray = [[NSMutableArray alloc]init];

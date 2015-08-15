@@ -18,4 +18,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *projectGoalLabel;
 @property (weak, nonatomic) IBOutlet UIProgressView *projectProgress;
 @property (weak, nonatomic) IBOutlet UILabel *voteUserRemaining;
+- (IBAction)voteButton:(id)sender;
 @end
