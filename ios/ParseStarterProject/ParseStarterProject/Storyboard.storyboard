@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NK2-Nl-S6o">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2dq-LD-rr5">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
@@ -168,7 +168,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="145" id="J48-uU-RmD">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="145" id="J48-uU-RmD" customClass="ProjectTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J48-uU-RmD" id="YTY-mF-S1I">
@@ -197,6 +197,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qpt-9u-mwF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2416" y="374"/>
+        </scene>
+        <!--Brain Tree View Controller-->
+        <scene sceneID="6Tm-mh-nqf">
+            <objects>
+                <viewController id="2dq-LD-rr5" customClass="BrainTreeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qbw-4m-zhv"/>
+                        <viewControllerLayoutGuide type="bottom" id="IJZ-PQ-KPm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="idt-ZR-BBE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVk-zI-s38">
+                                <rect key="frame" x="84" y="372" width="432" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="jN7-tT-MZc"/>
+                                    <constraint firstAttribute="width" secondItem="MVk-zI-s38" secondAttribute="height" multiplier="108:11" id="kUs-3c-LZD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSD-LJ-fPI">
+                                <rect key="frame" x="177" y="257" width="246" height="86"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="86" id="3mF-Yw-xto"/>
+                                    <constraint firstAttribute="width" secondItem="BSD-LJ-fPI" secondAttribute="height" multiplier="123:43" id="PWD-BH-IoN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Start Payment">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startPayment:" destination="2dq-LD-rr5" eventType="touchUpInside" id="AZe-e3-ZA2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="BSD-LJ-fPI" secondAttribute="centerX" id="KQd-Kt-VAB"/>
+                            <constraint firstItem="MVk-zI-s38" firstAttribute="top" secondItem="BSD-LJ-fPI" secondAttribute="bottom" constant="55" id="jQf-GO-5Ke"/>
+                            <constraint firstAttribute="centerX" secondItem="MVk-zI-s38" secondAttribute="centerX" id="lL5-5n-aD9"/>
+                            <constraint firstAttribute="centerY" secondItem="BSD-LJ-fPI" secondAttribute="centerY" id="qam-Jq-xJF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="startPaymentButton" destination="BSD-LJ-fPI" id="SCW-ij-D1A"/>
+                        <outlet property="transactionIDLabel" destination="MVk-zI-s38" id="pyh-al-Gfa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uy5-S9-FQd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3142" y="374"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="jMj-1p-pgp">

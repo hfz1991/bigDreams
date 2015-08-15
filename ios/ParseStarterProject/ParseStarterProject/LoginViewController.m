@@ -68,7 +68,7 @@
             [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(loginSuccess:) userInfo:nil repeats:NO];
         }
     }];
-    
+        
 }
 
 - (void)loginSuccess: (id)sender{

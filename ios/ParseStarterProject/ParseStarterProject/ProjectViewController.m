@@ -7,6 +7,7 @@
 //
 
 #import "ProjectViewController.h"
+#import "ProjectTableViewCell.h"
 
 @interface ProjectViewController ()
 
@@ -21,19 +22,32 @@
 
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier=@"cell";
+    
+    ProjectTableViewCell *cell=(ProjectTableViewCell *) [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if(!cell)
+    {
+        cell=[[ProjectTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+//    cell.textLabel.text=[accountTypeArray objectAtIndex:indexPath.row];
+    
+    return cell;
+    
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 4;
 }
-*/
+
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
 
 @end

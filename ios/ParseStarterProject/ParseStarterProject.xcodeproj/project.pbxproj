@@ -27,6 +27,8 @@
 		563C90661B7F550F00C6B994 /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 563C90651B7F550F00C6B994 /* ProjectViewController.m */; };
 		563C90681B7F590900C6B994 /* space.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 563C90671B7F590900C6B994 /* space.jpg */; };
 		563C906A1B7F5A5200C6B994 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 563C90691B7F5A5200C6B994 /* Launch Screen.xib */; };
+		563C906D1B7F6C1C00C6B994 /* BrainTreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 563C906C1B7F6C1C00C6B994 /* BrainTreeViewController.m */; };
+		563C90711B7F765900C6B994 /* ProjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 563C90701B7F765900C6B994 /* ProjectTableViewCell.m */; };
 		743D7B6D157DA60100084B67 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743D7B6C157DA60100084B67 /* CoreGraphics.framework */; };
 		814C3ABD1B69864600E307BB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AB21B69864600E307BB /* Default-568h@2x.png */; };
 		814C3ABE1B69864600E307BB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AB31B69864600E307BB /* Default.png */; };
@@ -68,6 +70,10 @@
 		563C90651B7F550F00C6B994 /* ProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectViewController.m; sourceTree = "<group>"; };
 		563C90671B7F590900C6B994 /* space.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = space.jpg; sourceTree = "<group>"; };
 		563C90691B7F5A5200C6B994 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		563C906B1B7F6C1C00C6B994 /* BrainTreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrainTreeViewController.h; sourceTree = "<group>"; };
+		563C906C1B7F6C1C00C6B994 /* BrainTreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrainTreeViewController.m; sourceTree = "<group>"; };
+		563C906F1B7F765900C6B994 /* ProjectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectTableViewCell.h; sourceTree = "<group>"; };
+		563C90701B7F765900C6B994 /* ProjectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectTableViewCell.m; sourceTree = "<group>"; };
 		6332375315E438E900AE2736 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		6372FF521613CC3C002132AF /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		6372FF551613CC42002132AF /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -181,6 +187,7 @@
 		563C90591B7F39F900C6B994 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				563C906E1B7F763000C6B994 /* Custom Cells */,
 				563C905B1B7F3A4C00C6B994 /* FirstScreenViewController.h */,
 				563C905C1B7F3A4C00C6B994 /* FirstScreenViewController.m */,
 				563C905E1B7F3A7D00C6B994 /* SignUpViewController.h */,
@@ -189,6 +196,8 @@
 				563C90621B7F411F00C6B994 /* LoginViewController.m */,
 				563C90641B7F550F00C6B994 /* ProjectViewController.h */,
 				563C90651B7F550F00C6B994 /* ProjectViewController.m */,
+				563C906B1B7F6C1C00C6B994 /* BrainTreeViewController.h */,
+				563C906C1B7F6C1C00C6B994 /* BrainTreeViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -200,6 +209,15 @@
 				09ABC08113A1D52D009C3FCF /* ParseStarterProjectAppDelegate.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		563C906E1B7F763000C6B994 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				563C906F1B7F765900C6B994 /* ProjectTableViewCell.h */,
+				563C90701B7F765900C6B994 /* ProjectTableViewCell.m */,
+			);
+			name = "Custom Cells";
 			sourceTree = "<group>";
 		};
 		814C3AB11B69864600E307BB /* Resources */ = {
@@ -368,11 +386,13 @@
 			files = (
 				09ABC07F13A1D52D009C3FCF /* main.m in Sources */,
 				563C90601B7F3A7D00C6B994 /* SignUpViewController.m in Sources */,
+				563C90711B7F765900C6B994 /* ProjectTableViewCell.m in Sources */,
 				563C90631B7F411F00C6B994 /* LoginViewController.m in Sources */,
 				563C905D1B7F3A4C00C6B994 /* FirstScreenViewController.m in Sources */,
 				09ABC08213A1D52D009C3FCF /* ParseStarterProjectAppDelegate.m in Sources */,
 				09ABC08813A1D52E009C3FCF /* ParseStarterProjectViewController.m in Sources */,
 				563C90661B7F550F00C6B994 /* ProjectViewController.m in Sources */,
+				563C906D1B7F6C1C00C6B994 /* BrainTreeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
