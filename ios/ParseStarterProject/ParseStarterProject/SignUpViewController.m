@@ -54,6 +54,8 @@
             HUD.indicatorView = [[JGProgressHUDSuccessIndicatorView alloc] init]; //JGProgressHUDSuccessIndicatorView is also available
             [HUD showInView:self.view];
             [HUD dismissAfterDelay:2.0];
+            [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(signupSuccess:) userInfo:nil repeats:NO];
+
         }
         else{
             JGProgressHUD *HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
@@ -63,9 +65,11 @@
             [HUD dismissAfterDelay:2.0];
         }
     }];
-
-    
-    
     
 }
+
+- (void)signupSuccess: (id)sender{
+    [self performSegueWithIdentifier:@"signup" sender:self];
+}
+
 @end

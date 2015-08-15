@@ -24,6 +24,9 @@
 		563C905D1B7F3A4C00C6B994 /* FirstScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 563C905C1B7F3A4C00C6B994 /* FirstScreenViewController.m */; };
 		563C90601B7F3A7D00C6B994 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 563C905F1B7F3A7D00C6B994 /* SignUpViewController.m */; };
 		563C90631B7F411F00C6B994 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 563C90621B7F411F00C6B994 /* LoginViewController.m */; };
+		563C90661B7F550F00C6B994 /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 563C90651B7F550F00C6B994 /* ProjectViewController.m */; };
+		563C90681B7F590900C6B994 /* space.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 563C90671B7F590900C6B994 /* space.jpg */; };
+		563C906A1B7F5A5200C6B994 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 563C90691B7F5A5200C6B994 /* Launch Screen.xib */; };
 		743D7B6D157DA60100084B67 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743D7B6C157DA60100084B67 /* CoreGraphics.framework */; };
 		814C3ABD1B69864600E307BB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AB21B69864600E307BB /* Default-568h@2x.png */; };
 		814C3ABE1B69864600E307BB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AB31B69864600E307BB /* Default.png */; };
@@ -61,6 +64,10 @@
 		563C905F1B7F3A7D00C6B994 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		563C90611B7F411F00C6B994 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		563C90621B7F411F00C6B994 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		563C90641B7F550F00C6B994 /* ProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectViewController.h; sourceTree = "<group>"; };
+		563C90651B7F550F00C6B994 /* ProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectViewController.m; sourceTree = "<group>"; };
+		563C90671B7F590900C6B994 /* space.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = space.jpg; sourceTree = "<group>"; };
+		563C90691B7F5A5200C6B994 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		6332375315E438E900AE2736 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		6372FF521613CC3C002132AF /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		6372FF551613CC42002132AF /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -166,6 +173,7 @@
 			children = (
 				563C90561B7F334000C6B994 /* Storyboard.storyboard */,
 				814C3AB71B69864600E307BB /* MainWindow.xib */,
+				563C90691B7F5A5200C6B994 /* Launch Screen.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -179,6 +187,8 @@
 				563C905F1B7F3A7D00C6B994 /* SignUpViewController.m */,
 				563C90611B7F411F00C6B994 /* LoginViewController.h */,
 				563C90621B7F411F00C6B994 /* LoginViewController.m */,
+				563C90641B7F550F00C6B994 /* ProjectViewController.h */,
+				563C90651B7F550F00C6B994 /* ProjectViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -195,6 +205,7 @@
 		814C3AB11B69864600E307BB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				563C90671B7F590900C6B994 /* space.jpg */,
 				814C3AB21B69864600E307BB /* Default-568h@2x.png */,
 				814C3AB31B69864600E307BB /* Default.png */,
 				814C3AB41B69864600E307BB /* Default@2x.png */,
@@ -291,8 +302,10 @@
 			files = (
 				814C3ABE1B69864600E307BB /* Default.png in Resources */,
 				814C3AC21B69864600E307BB /* ParseStarterProjectViewController.xib in Resources */,
+				563C906A1B7F5A5200C6B994 /* Launch Screen.xib in Resources */,
 				814C3ABF1B69864600E307BB /* Default@2x.png in Resources */,
 				814C3ABD1B69864600E307BB /* Default-568h@2x.png in Resources */,
+				563C90681B7F590900C6B994 /* space.jpg in Resources */,
 				814C3AC11B69864600E307BB /* MainWindow.xib in Resources */,
 				563C90571B7F334000C6B994 /* Storyboard.storyboard in Resources */,
 				814C3AC01B69864600E307BB /* InfoPlist.strings in Resources */,
@@ -359,6 +372,7 @@
 				563C905D1B7F3A4C00C6B994 /* FirstScreenViewController.m in Sources */,
 				09ABC08213A1D52D009C3FCF /* ParseStarterProjectAppDelegate.m in Sources */,
 				09ABC08813A1D52E009C3FCF /* ParseStarterProjectViewController.m in Sources */,
+				563C90661B7F550F00C6B994 /* ProjectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

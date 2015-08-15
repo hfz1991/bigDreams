@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uho-Gc-rZu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NK2-Nl-S6o">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
@@ -141,10 +141,10 @@
             </objects>
             <point key="canvasLocation" x="1757" y="374"/>
         </scene>
-        <!--View Controller-->
+        <!--Project View Controller-->
         <scene sceneID="Uix-nr-mZA">
             <objects>
-                <viewController id="NK2-Nl-S6o" sceneMemberID="viewController">
+                <viewController id="NK2-Nl-S6o" customClass="ProjectViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IlW-Ig-N1b"/>
                         <viewControllerLayoutGuide type="bottom" id="CsZ-vw-rsp"/>
@@ -152,30 +152,34 @@
                     <view key="view" contentMode="scaleToFill" id="t3R-YY-XIa">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DIs-AN-1jR">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.94337694374719683" green="1" blue="0.87330186482033989" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7LK-mz-b1z">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fih-sd-Yad">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="DIs-AN-1jR"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qpt-9u-mwF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2416" y="374"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Coi-0q-9sz">
-            <objects>
-                <viewController id="nhG-em-4oY" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1hM-Xq-0Du"/>
-                        <viewControllerLayoutGuide type="bottom" id="1vs-dX-8Pg"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="IfE-HM-qin">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kbo-gZ-hxc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1909" y="1109"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="jMj-1p-pgp">
@@ -258,11 +262,12 @@
                     <connections>
                         <outlet property="passwordText" destination="9BD-0V-ugt" id="Gvf-ob-6nk"/>
                         <outlet property="usernameText" destination="D7g-VD-ac0" id="Xzs-IS-dT9"/>
+                        <segue destination="NK2-Nl-S6o" kind="show" identifier="signup" id="K5c-ye-Bhn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fSx-lA-FoP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1118" y="1146"/>
+            <point key="canvasLocation" x="1757" y="1131"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZdF-h7-KEa">
@@ -283,4 +288,7 @@
             <point key="canvasLocation" x="306" y="374"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="K5c-ye-Bhn"/>
+    </inferredMetricsTieBreakers>
 </document>
