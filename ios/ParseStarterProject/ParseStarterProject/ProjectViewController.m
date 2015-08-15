@@ -8,8 +8,11 @@
 
 #import "ProjectViewController.h"
 #import "ProjectTableViewCell.h"
+#import <Parse/Parse.h>
 
-@interface ProjectViewController ()
+@interface ProjectViewController (){
+    NSMutableArray *allProjectsArray;
+}
 
 @end
 
@@ -19,7 +22,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
-
+    
+    //Parse
+    PFQuery *query = [PFQuery queryWithClassName:@"Project"];
+    [query whereKey:@"projectName" matchesQuery:query];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+        [allProjectsArray addObjectsFromArray:objects];
+    }];
+    
+    _projectTableView.delegate = self;
+    _projectTableView.dataSource = self;
 }
 
 
@@ -31,6 +43,7 @@
     if(!cell)
     {
         cell=[[ProjectTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        
     }
 //    cell.textLabel.text=[accountTypeArray objectAtIndex:indexPath.row];
     
@@ -41,7 +54,8 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    NSLog(@"%lu", (unsigned long)allProjectsArray.count);
+    return allProjectsArray.count;
 }
 
 
