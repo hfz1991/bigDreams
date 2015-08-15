@@ -24,8 +24,8 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-301.25">
-              <caret line="482" column="7" selection-start-line="482" selection-start-column="7" selection-end-line="482" selection-end-column="7" />
+            <state vertical-scroll-proportion="-6.875">
+              <caret line="15" column="78" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -34,8 +34,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.14981273">
-              <caret line="8" column="75" selection-start-line="8" selection-start-column="75" selection-end-line="8" selection-end-column="75" />
+            <state vertical-scroll-proportion="0.35580525">
+              <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -232,16 +232,16 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-301.25">
-          <caret line="482" column="7" selection-start-line="482" selection-start-column="7" selection-end-line="482" selection-end-column="7" />
+        <state vertical-scroll-proportion="-6.875">
+          <caret line="15" column="78" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="78" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14981273">
-          <caret line="8" column="75" selection-start-line="8" selection-start-column="75" selection-end-line="8" selection-end-column="75" />
+        <state vertical-scroll-proportion="0.35580525">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
           <folding />
         </state>
       </provider>
