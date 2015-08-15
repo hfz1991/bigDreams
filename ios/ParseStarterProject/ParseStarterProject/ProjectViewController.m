@@ -63,7 +63,8 @@
     cell.projectTitle.text = [currentDictionary objectForKey:@"projectName"];
     cell.projectDescription.text = [currentDictionary objectForKey:@"projectDescription"];
     cell.projectGoal.text = [[currentDictionary objectForKey:@"projectGoal"] stringValue];
-    cell.projectGoalProgressView.progress = [[currentDictionary objectForKey:@"projectGoal"]floatValue]/100;
+    cell.projectVote.text = [[currentDictionary objectForKey:@"votes"] stringValue];
+    cell.projectGoalProgressView.progress = [[currentDictionary objectForKey:@"votes"]floatValue]/[[currentDictionary objectForKey:@"projectGoal"]floatValue];
     PFFile *originImage = [currentDictionary objectForKey:@"projectImage"];
     if (originImage != NULL) {
         [originImage getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error){
