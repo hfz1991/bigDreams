@@ -16,6 +16,9 @@
 @property (strong, nonatomic) AFHTTPRequestOperationManager *manager;
 @property (weak, nonatomic) IBOutlet UIButton *startPaymentButton;
 
+@property NSString *username;
+@property NSString *userObjectId;
+
 - (IBAction)startPayment:(id)sender;
 
 @end

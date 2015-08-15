@@ -117,7 +117,6 @@
         PFQuery *query2 = [PFQuery queryWithClassName:@"Account"];
         [query2 getObjectInBackgroundWithId:userObjectID block:^(PFObject *object2, NSError *error){
             object2[@"votesRemaining"] = postUserVote;
-//            [object2 setObject:postUserVote forKey:@"votesRemaining"];
             [object2 saveInBackground];
         }];
         

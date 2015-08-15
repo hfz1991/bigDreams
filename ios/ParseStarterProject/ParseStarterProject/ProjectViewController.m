@@ -5,6 +5,7 @@
 //  Created by Fangzhou He on 15/08/2015.
 //
 //
+#import "BrainTreeViewController.h"
 #import "ProjectDetailViewController.h"
 #import "ProjectViewController.h"
 #import "ProjectTableViewCell.h"
@@ -13,6 +14,7 @@
 
 @interface ProjectViewController (){
     NSMutableArray *allProjectsArray;
+    NSString *userObjectID;
 }
 
 @end
@@ -28,6 +30,7 @@
     PFQuery *query2 = [PFQuery queryWithClassName:@"Account"];
     [query2 whereKey:@"username" equalTo:_username];
     [query2 getFirstObjectInBackgroundWithBlock:^(PFObject *object2, NSError *error){
+        userObjectID = [object2 objectId];
         NSString *voteString = [[object2 objectForKey:@"votesRemaining"]stringValue];
         _myVote.text = voteString;
     }];
@@ -54,7 +57,14 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
-
+    
+    PFQuery *query2 = [PFQuery queryWithClassName:@"Account"];
+    [query2 whereKey:@"username" equalTo:_username];
+    [query2 getFirstObjectInBackgroundWithBlock:^(PFObject *object2, NSError *error){
+        userObjectID = [object2 objectId];
+        NSString *voteString = [[object2 objectForKey:@"votesRemaining"]stringValue];
+        _myVote.text = voteString;
+    }];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -107,7 +117,11 @@
         NSIndexPath *indexPath = [_projectTableView indexPathForSelectedRow];
         vc.projectID = [[allProjectsArray objectAtIndex:indexPath.row]objectForKey:@"projectID"];
     }
-    
+    if ([segue.identifier isEqualToString:@"payment"]) {
+        BrainTreeViewController *vc = [segue destinationViewController];
+        vc.username = _username;
+        vc.userObjectId = userObjectID;
+    }
 }
 
 @end

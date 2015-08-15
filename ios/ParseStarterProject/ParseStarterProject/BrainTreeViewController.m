@@ -7,8 +7,12 @@
 //
 
 #import "BrainTreeViewController.h"
+#import <Parse/Parse.h>
+#import <JGProgressHUD/JGProgressHUD.h>//;
 
-@interface BrainTreeViewController ()<BTDropInViewControllerDelegate>
+@interface BrainTreeViewController ()<BTDropInViewControllerDelegate>{
+    NSNumber *currentUserVote;
+}
 
 @end
 
@@ -55,6 +59,7 @@
                        animated:YES
                      completion:nil];
     
+    
 }
 
 - (void)dropInViewController:(__unused BTDropInViewController *)viewController didSucceedWithPaymentMethod:(BTPaymentMethod *)paymentMethod {
@@ -77,6 +82,30 @@
                success:^(AFHTTPRequestOperation *operation, id responseObject) {
                    NSString *transactionID = responseObject[@"transaction"][@"id"];
                    self.transactionIDLabel.text = [[NSString alloc] initWithFormat:@"Transaction ID: %@", transactionID];
+                   
+                   //
+                   PFQuery *query2 = [PFQuery queryWithClassName:@"Account"];
+                   [query2 whereKey:@"username" equalTo:_username];
+                   [query2 getFirstObjectInBackgroundWithBlock:^(PFObject *object2, NSError *error){
+                       currentUserVote = [object2 objectForKey:@"votesRemaining"];
+                       
+                       int currentUserVoteValue = [currentUserVote intValue];
+                       NSNumber *postUserVote = [NSNumber numberWithInt:currentUserVoteValue+10];
+                       
+                       PFQuery *query = [PFQuery queryWithClassName:@"Account"];
+                       [query getObjectInBackgroundWithId:_userObjectId block:^(PFObject *object, NSError *error){
+                           object[@"votesRemaining"] = postUserVote;
+                           [object saveInBackground];
+                       }];
+                   }];
+                   
+                   
+                   //
+                   JGProgressHUD *HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
+                   HUD.textLabel.text = @"Success! 10 votes Added.";
+                   HUD.indicatorView = [[JGProgressHUDSuccessIndicatorView alloc] init]; //JGProgressHUDSuccessIndicatorView is also available
+                   [HUD showInView:self.view];
+                   [HUD dismissAfterDelay:2.0];
                }
                failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                    NSLog(@"Error: %@", error);
