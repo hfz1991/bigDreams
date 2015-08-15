@@ -17,6 +17,7 @@
 		09ABC08213A1D52D009C3FCF /* ParseStarterProjectAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ABC08113A1D52D009C3FCF /* ParseStarterProjectAppDelegate.m */; };
 		09ABC08813A1D52E009C3FCF /* ParseStarterProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ABC08713A1D52E009C3FCF /* ParseStarterProjectViewController.m */; };
 		09BEF34C13D51C3F001BBCDB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BEF34B13D51C3F001BBCDB /* Security.framework */; };
+		108794B81B7F5B2200EBD6F8 /* braintree_ios-master in Resources */ = {isa = PBXBuildFile; fileRef = 108794B71B7F5B2200EBD6F8 /* braintree_ios-master */; };
 		2FCDD6B014A573F500295AAC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCDD6AF14A573F500295AAC /* QuartzCore.framework */; };
 		4998650515BF305000803E05 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4998650415BF305000803E05 /* StoreKit.framework */; };
 		4EDE690B7E091EFD038C7F99 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DF07363A5E4E6357DA02B9 /* libPods.a */; };
@@ -52,6 +53,7 @@
 		09ABC08613A1D52E009C3FCF /* ParseStarterProjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParseStarterProjectViewController.h; sourceTree = "<group>"; };
 		09ABC08713A1D52E009C3FCF /* ParseStarterProjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParseStarterProjectViewController.m; sourceTree = "<group>"; };
 		09BEF34B13D51C3F001BBCDB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		108794B71B7F5B2200EBD6F8 /* braintree_ios-master */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "braintree_ios-master"; path = "../../../../../Downloads/braintree_ios-master"; sourceTree = "<group>"; };
 		2FCDD6AF14A573F500295AAC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4998650415BF305000803E05 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		563C90561B7F334000C6B994 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		09ABC07713A1D52D009C3FCF /* ParseStarterProject */ = {
 			isa = PBXGroup;
 			children = (
+				108794B71B7F5B2200EBD6F8 /* braintree_ios-master */,
 				563C905A1B7F3A1700C6B994 /* Model */,
 				563C90591B7F39F900C6B994 /* Controller */,
 				563C90581B7F39E700C6B994 /* View */,
@@ -292,6 +295,7 @@
 				814C3ABE1B69864600E307BB /* Default.png in Resources */,
 				814C3AC21B69864600E307BB /* ParseStarterProjectViewController.xib in Resources */,
 				814C3ABF1B69864600E307BB /* Default@2x.png in Resources */,
+				108794B81B7F5B2200EBD6F8 /* braintree_ios-master in Resources */,
 				814C3ABD1B69864600E307BB /* Default-568h@2x.png in Resources */,
 				814C3AC11B69864600E307BB /* MainWindow.xib in Resources */,
 				563C90571B7F334000C6B994 /* Storyboard.storyboard in Resources */,
