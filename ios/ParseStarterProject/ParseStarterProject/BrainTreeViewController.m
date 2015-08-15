@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
     // Do any additional setup after loading the view.
     self.manager = [AFHTTPRequestOperationManager manager];
     [self getToken];
@@ -91,5 +92,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end

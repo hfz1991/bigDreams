@@ -30,12 +30,6 @@
                                     <segue destination="2sx-e1-L1H" kind="show" id="oBR-qR-e3e"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dream Big" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1W-kx-NK1">
-                                <rect key="frame" x="223" y="105" width="155" height="44"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <color key="textColor" red="0.023529411764705882" green="0.56470588235294117" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWK-Cn-GWI">
                                 <rect key="frame" x="272" y="275" width="56" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -46,6 +40,12 @@
                                     <segue destination="gfg-yc-S2C" kind="show" identifier="" id="aMg-xw-itx"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dream Big" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1W-kx-NK1">
+                                <rect key="frame" x="225" y="106" width="152" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <color key="textColor" red="0.023529411764705882" green="0.56470588235294117" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -53,6 +53,8 @@
                             <constraint firstItem="iyD-fA-WWV" firstAttribute="top" secondItem="AWK-Cn-GWI" secondAttribute="bottom" constant="27" id="C2d-Bp-eCt"/>
                             <constraint firstItem="AWK-Cn-GWI" firstAttribute="centerX" secondItem="HCW-sm-Max" secondAttribute="centerX" id="Ijr-zh-V2h"/>
                             <constraint firstItem="fiC-L2-pcD" firstAttribute="top" secondItem="iyD-fA-WWV" secondAttribute="bottom" constant="240" id="hZq-El-vn9"/>
+                            <constraint firstItem="l1W-kx-NK1" firstAttribute="top" secondItem="FX7-eY-EFX" secondAttribute="bottom" constant="42" id="l6V-T7-3D8"/>
+                            <constraint firstAttribute="centerX" secondItem="l1W-kx-NK1" secondAttribute="centerX" constant="-0.5" id="taq-3a-nPg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bs8-dn-EbL"/>
@@ -158,7 +160,7 @@
                                 <cells/>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="145" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fih-sd-Yad">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="145" id="J48-uU-RmD" customClass="ProjectTableViewCell">
@@ -194,13 +196,18 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="FDT-3k-qTK">
+                                                    <rect key="frame" x="291" y="122" width="301" height="2"/>
+                                                </progressView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="projectDescription" destination="zJZ-Bb-2yX" id="YAb-Yl-0Oq"/>
                                             <outlet property="projectGoal" destination="adM-LM-8au" id="Sn9-dE-EIB"/>
+                                            <outlet property="projectGoalProgressView" destination="FDT-3k-qTK" id="DsG-yN-bPb"/>
                                             <outlet property="projectImage" destination="a0m-Nk-wlm" id="OSf-NO-DGU"/>
                                             <outlet property="projectTitle" destination="kN6-Xq-Lgg" id="rdd-6d-wzI"/>
+                                            <segue destination="2dq-LD-rr5" kind="show" id="GXd-nh-cf7"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
