@@ -7,8 +7,11 @@
 //
 
 #import "ProjectDetailViewController.h"
+#import <Parse/Parse.h>
+#import <JGProgressHUD/JGProgressHUD.h>//;
 
-@interface ProjectDetailViewController ()
+@interface ProjectDetailViewController (){
+}
 
 @end
 
@@ -17,8 +20,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    JGProgressHUD *HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
+    HUD.textLabel.text = @"Loading";
+    [HUD showInView:self.view];
 
     // Do any additional setup after loading the view.
+    PFQuery *query = [PFQuery queryWithClassName:@"Project"];
+    [query whereKey:@"projectID" equalTo:_projectID];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+        NSLog(@"%@",objects);
+        _projectTitle.text = [[objects objectAtIndex:0]objectForKey:@"projectName"];
+        _projectDescrition.text = [[objects objectAtIndex:0]objectForKey:@"projectDescription"];
+        _voteLabel.text = [[[objects objectAtIndex:0]objectForKey:@"votes"]stringValue];
+        PFFile *originImage = [[objects objectAtIndex:0] objectForKey:@"projectImage"];
+        if (originImage != NULL) {
+            [originImage getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error){
+                UIImage *image = [UIImage imageWithData:imageData];
+                _projectImage.image = image;
+            }];
+        }
+        [HUD dismissAfterDelay:0];
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

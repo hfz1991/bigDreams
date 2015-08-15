@@ -5,7 +5,7 @@
 //  Created by Fangzhou He on 15/08/2015.
 //
 //
-
+#import "ProjectDetailViewController.h"
 #import "ProjectViewController.h"
 #import "ProjectTableViewCell.h"
 #import <Parse/Parse.h>
@@ -100,6 +100,13 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    
+    if ([segue.identifier isEqualToString:@"projectDetail"]) {
+        ProjectDetailViewController *vc = [segue destinationViewController];
+        vc.username = _username;
+        NSIndexPath *indexPath = [_projectTableView indexPathForSelectedRow];
+        vc.projectID = [[allProjectsArray objectAtIndex:indexPath.row]objectForKey:@"projectID"];
+    }
     
 }
 
