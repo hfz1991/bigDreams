@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "ProjectViewController.h"
 #import <Parse/Parse.h>
 #import <JGProgressHUD/JGProgressHUD.h>//;
 
@@ -75,4 +76,8 @@
     [self performSegueWithIdentifier:@"login" sender:self];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    ProjectViewController *vc = [segue destinationViewController];
+    vc.username = _usernameText.text;
+}
 @end
