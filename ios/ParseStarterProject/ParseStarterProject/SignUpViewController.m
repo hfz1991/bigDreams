@@ -7,6 +7,7 @@
 //
 
 #import "SignUpViewController.h"
+#import "ProjectViewController.h"
 #import <Parse/Parse.h>
 #import <JGProgressHUD/JGProgressHUD.h>//;
 
@@ -20,8 +21,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
-
+    [_passwordText setDelegate:(id)self];
+    [_usernameText setDelegate:(id)self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,7 +56,8 @@
             [HUD showInView:self.view];
             [HUD dismissAfterDelay:2.0];
             [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(signupSuccess:) userInfo:nil repeats:NO];
-
+            
+//            [self performSegueWithIdentifier:@"signup" sender:self];
         }
         else{
             JGProgressHUD *HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
@@ -70,6 +72,17 @@
 
 - (void)signupSuccess: (id)sender{
     [self performSegueWithIdentifier:@"signup" sender:self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    ProjectViewController *vc=[segue destinationViewController];
+    vc.username = _usernameText.text;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField*)textField{
+    [_passwordText resignFirstResponder];
+    [_usernameText resignFirstResponder];
+    return YES;
 }
 
 @end

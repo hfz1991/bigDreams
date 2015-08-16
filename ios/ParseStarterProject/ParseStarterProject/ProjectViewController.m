@@ -63,8 +63,15 @@
     [query2 getFirstObjectInBackgroundWithBlock:^(PFObject *object2, NSError *error){
         userObjectID = [object2 objectId];
         NSString *voteString = [[object2 objectForKey:@"votesRemaining"]stringValue];
-        _myVote.text = voteString;
+        if (voteString==nil) {
+            _myVote.text = @"0";
+        }
+        else{
+           _myVote.text = voteString; 
+        }
     }];
+    
+    [_projectTableView reloadData];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

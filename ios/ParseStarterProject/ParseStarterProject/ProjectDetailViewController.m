@@ -28,7 +28,15 @@
     HUD.textLabel.text = @"Loading";
     [HUD showInView:self.view];
 
-    [self updateMyVoteLabel];
+    PFQuery *query2 = [PFQuery queryWithClassName:@"Account"];
+    [query2 whereKey:@"username" equalTo:_username];
+    [query2 getFirstObjectInBackgroundWithBlock:^(PFObject *object2, NSError *error){
+        NSString *voteString = [[object2 objectForKey:@"votesRemaining"]stringValue];
+        _voteUserRemaining.text = voteString;
+        userObjectID = [object2 objectId];
+        currentUserVote = [object2 objectForKey:@"votesRemaining"];
+        
+    }];
     
     
     
@@ -67,27 +75,13 @@
 }
 
 - (void)updateMyVoteLabel {
-    PFQuery *query2 = [PFQuery queryWithClassName:@"Account"];
-    [query2 whereKey:@"username" equalTo:_username];
-    [query2 getFirstObjectInBackgroundWithBlock:^(PFObject *object2, NSError *error){
-        NSString *voteString = [[object2 objectForKey:@"votesRemaining"]stringValue];
-        _voteUserRemaining.text = voteString;
-        userObjectID = [object2 objectId];
-        currentUserVote = [object2 objectForKey:@"votesRemaining"];
-
-    }];
+    currentUserVote = [NSNumber numberWithInt:[currentUserVote intValue]-1];
+    _voteUserRemaining.text = [currentUserVote stringValue];
 }
 
 - (void)updateProjectVote {
-    PFQuery *query = [PFQuery queryWithClassName:@"Project"];
-    [query whereKey:@"projectID" equalTo:_projectID];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-        _voteLabel.text = [[[objects objectAtIndex:0]objectForKey:@"votes"]stringValue];
-        _projectGoalLabel.text = [[[objects objectAtIndex:0]objectForKey:@"projectGoal"]stringValue];
-        _projectProgress.progress = [[[objects objectAtIndex:0]objectForKey:@"votes"]floatValue] / [[[objects objectAtIndex:0]objectForKey:@"projectGoal"]floatValue];
-        currentProjectVote = [[objects objectAtIndex:0]objectForKey:@"votes"];
-    }];
-
+    currentProjectVote = [NSNumber numberWithInt:[currentProjectVote intValue]+1];
+    _voteLabel.text = [currentProjectVote stringValue];
 }
 
 /*
@@ -101,6 +95,10 @@
 */
 
 - (IBAction)voteButton:(id)sender {
+    JGProgressHUD *HUDCONNECTION = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
+    HUDCONNECTION.textLabel.text = @"Connecting to server...";
+    [HUDCONNECTION showInView:self.view];
+    
     if(currentUserVote>0){
         int currentProjectVoteValue = [currentProjectVote intValue];
         int currentUserVoteValue = [currentUserVote intValue];
@@ -122,10 +120,17 @@
         
         [self updateMyVoteLabel];
         [self updateProjectVote];
-        
+        [HUDCONNECTION dismissAfterDelay:0];
+
     }
     else{
-        NSLog(@"No enough vote, please top up");
+        [HUDCONNECTION dismissAfterDelay:0];
+        JGProgressHUD *HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
+        HUD.textLabel.text = @"Error:Not enough votes, please top up!";
+        HUD.indicatorView = [[JGProgressHUDErrorIndicatorView alloc] init]; //JGProgressHUDSuccessIndicatorView is also available
+        [HUD showInView:self.view];
+        [HUD dismissAfterDelay:1.0];
+        NSLog(@"Not enough votes, please top up");
     }
     
 }

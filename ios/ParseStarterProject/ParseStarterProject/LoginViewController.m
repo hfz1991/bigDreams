@@ -19,6 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [_passwordText setDelegate:(id)self];
+    [_usernameText setDelegate:(id)self];
     // Do any additional setup after loading the view.
 }
 
@@ -79,5 +81,12 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     ProjectViewController *vc = [segue destinationViewController];
     vc.username = _usernameText.text;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField*)textField{
+    [_passwordText resignFirstResponder];
+    [_usernameText resignFirstResponder];
+    
+    return YES;
 }
 @end

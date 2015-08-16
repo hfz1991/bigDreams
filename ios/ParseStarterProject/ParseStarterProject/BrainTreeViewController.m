@@ -12,6 +12,7 @@
 
 @interface BrainTreeViewController ()<BTDropInViewControllerDelegate>{
     NSNumber *currentUserVote;
+    JGProgressHUD *HUD;
 }
 
 @end
@@ -21,6 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    
+    HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
+    HUD.textLabel.text = @"Connecting to payment server...";
+    [HUD showInView:self.view];
+    
     // Do any additional setup after loading the view.
     self.manager = [AFHTTPRequestOperationManager manager];
     [self getToken];
@@ -32,9 +38,18 @@
               success: ^(AFHTTPRequestOperation *operation, id responseObject) {
                   self.clientToken = responseObject[@"clientToken"];
                   self.startPaymentButton.enabled = TRUE;
+                  [HUD dismissAfterDelay:0];
+
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   NSLog(@"Error: %@", error);
+                  [HUD dismissAfterDelay:0];
+                  
+                  JGProgressHUD *HUDERROR = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
+                  HUDERROR.textLabel.text = @"Error:Server";
+                  HUDERROR.indicatorView = [[JGProgressHUDErrorIndicatorView alloc] init]; //JGProgressHUDSuccessIndicatorView is also available
+                  [HUDERROR showInView:self.view];
+                  [HUDERROR dismissAfterDelay:1.0];
               }];
 }
 
@@ -77,6 +92,9 @@
 
 #pragma mark POST NONCE TO SERVER method
 - (void)postNonceToServer:(NSString *)paymentMethodNonce {
+    JGProgressHUD *HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
+    HUD.textLabel.text = @"Processing...";
+    [HUD showInView:self.view];
     [self.manager POST:@"http://692198eb.ngrok.io/payment"
             parameters:@{@"payment_method_nonce": paymentMethodNonce}
                success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -98,7 +116,7 @@
                            [object saveInBackground];
                        }];
                    }];
-                   
+                   [HUD dismissAfterDelay:0];
                    
                    //
                    JGProgressHUD *HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
