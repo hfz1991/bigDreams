@@ -124,4 +124,8 @@
     }
 }
 
+- (IBAction)logout:(id)sender {
+    [self performSegueWithIdentifier:@"logout" sender:self];
+
+}
 @end

@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *projectTableView;
 @property (weak, nonatomic) IBOutlet UILabel *myVote;
 @property NSString *username;
+- (IBAction)logout:(id)sender;
 
 @end
